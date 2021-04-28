@@ -3,63 +3,163 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lab6project;
+package pkg1213module3;
 
 /**
- *
- * @author dwilso1
+ * This class creates vars, getters, setters, and methods to be passed into-- 
+ * StudentDriver
+ * @author ReileyMeeks
  */
-public class Student extends Person {
-
+public class Student {
+    private String firstName;
+    private String lastName;
+    private int studentId;
     private String major;
     private double gpa;
-  
-    public Student(String name, int id, String major, double gpa) {
-        super(name, id);
-        this.major = major;
-        this.gpa = gpa;
-    }
-
+    private int credits;
+    private double cardBalance;
+    
     /**
-     * Get the value of major
-     *
-     * @return the value of major
+     * For use in creating a new student object
+     * @param fName
+     * @param lName
+     * @param id
+     * @param major
+     * @param gpa
+     * @param credits 
      */
-    public String getMajor() {
+    public Student(String fName, String lName, int id, String major, 
+            double gpa, int credits){
+       this.firstName = fName;
+       this.lastName = lName;
+       this.studentId = id;
+       this.major = major;
+       this.gpa = gpa;
+       this.credits = credits;
+    }
+    /**
+     * Default student constructor 
+     */
+    Student() {
+     
+    }
+    //Getter/Accsessor methods
+    /**
+     * Getter method for firstName
+     * @return 
+     */
+    public String getFirstName(){
+        return firstName;
+    }
+    /**
+     * Getter method for lastName
+     * @return 
+     */
+    public String getLastName(){
+        return lastName;
+    }
+    /**
+     * Getter method for studentId
+     * @return 
+     */
+    public int getStudentId(){
+        return studentId;
+    }
+    /**
+     * Getter method for major
+     * @return 
+     */
+    public String getMajor(){
         return major;
     }
-
     /**
-     * Get the value of gpa
-     *
-     * @return the value of gpa
+     * Getter method for gpa
+     * @return 
      */
-    public double getGpa() {
+    public double getGpa(){
         return gpa;
     }
-
     /**
-     * Set the value of major
-     *
-     * @param major new value of major
+     * Getter method for credits
+     * @return 
      */
-    public void setMajor(String major) {
+    public int getCredits(){
+        return credits;
+    }
+    /**
+     * Getter method for cardBalance
+     * @return 
+     */
+    public double getCardBalance(){
+        return cardBalance; 
+    }
+    //Setter/Mutator Methods
+    /**
+     * Setter method to set firstName to fName
+     * @param fName 
+     */
+    public void setFirstName(String fName){
+        this.firstName = fName;
+    }
+    /**
+     * Setter method to set lastName to lName
+     * @param lName 
+     */
+    public void setLastName(String lName){
+        this.lastName = lName;
+    }
+    /**
+     * Setter method to set studentId to id
+     * @param id 
+     */
+    public void setStudentId(int id){
+        this.studentId = id;
+    }
+    /**
+     * Setter method to set major to major
+     * @param major 
+     */
+    public void setMajor(String major){
         this.major = major;
     }
     /**
-     * Set the value of gpa
-     *
-     * @param gpa new value of gpa
+     * Setter method to set gpa to gpa
+     * @param gpa 
      */
-    public void setGpa(double gpa) {
+    public void setGpa(double gpa){
         this.gpa = gpa;
-    } 
-    
-    public String toString(){
-        return super.toString() + " " + "major= " + major + ", gpa= " + gpa;
+    }
+    /**
+     * Setter method to set credits to credits
+     * @param credits 
+     */
+    public void setCredits(int credits){
+        this.credits = credits;
+    }
+    //49er Card Methods
+    /**
+     * Checks to see if valid amount is transfered, if yes adds to cardBalance
+     * @param amount 
+     */
+    public void transferToCard(double amount){
+        if(amount > 0){
+            this.cardBalance = this.cardBalance + amount;
+            System.out.println("Your new balance is: " + this.cardBalance);
+        } else if(amount < 0){
+            System.out.println("The transfer amount must be greater than 0.");
+        }
+    }
+    /**
+     * Checks if valid amount is being removed, if yes subtracts from cardBalance
+     * @param amount 
+     */
+    public void payFromCard(double amount){
+        if(amount <= this.cardBalance){
+            this.cardBalance = this.cardBalance - amount;
+            System.out.println("Your new balance is: " + this.cardBalance);
+        } else if(amount > this.cardBalance){
+            System.out.println("Sorry, your balance is too low!");
+        }
     }
     
-
-
 }
-

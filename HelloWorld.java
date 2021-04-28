@@ -1,0 +1,15 @@
+/*
+ Reiley Meeks
+ Lab 2 - Hello World
+ ITSC1212 - A Java Class
+ */
+
+class HelloWorld{
+  //class body starts here
+  public static void main (String[] args) {
+    // method body starts here
+    System.out.println("Hello World");
+    //end of main method body
+  }
+  //end of class definition 
+}
